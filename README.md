@@ -29,7 +29,7 @@ GRANT ALL PRIVILEGES ON clamdb.* TO clamdbuser@localhost IDENTIFIED BY 'AReallyL
 ```
 mysql -uroot -p clamdb < db/sample/clam.sql
 ```
-4. either copy config/app.default.php to config/app.php and modify the `Datasources => default` section to point to the database
+4. Copy config/app.default.php to config/app.php and modify the `Datasources => default` section to point to the database
 ```php
  'Datasources' => [
         'default' => [
@@ -91,14 +91,14 @@ bin/cake server
 
 7. Use the `Schedules` menu to create, edit and update meeting schedules
 
-### About the structure of the CLAM Schedule
-Each schedule covers one month and has a start and end date as drawn from the meeting workbook
-With each schedule you can add meetings on your normal date
-When you add a meeting a default number of parts are added and you can add and remore meeting parts as needed
-Each meeting can have a meeting note. Here you can include special information such as an upcoming working bee, a circuit overseers visit, or dates for a circuit assembly or regional convention. This is where you would add a "No meeting" 
+## Sample of PDF Schedule Output
 
+[CLAM Example](docs/sample/2019-11_Nov_CLM.pdf)
 
+## Screen shot of schedule edit screen
 
+This is a React Single Page Application. The React code is located in the clam-react folder
 
+![React](docs/images/schedule_edit_spa.png)
 
 

@@ -22,7 +22,7 @@ class ClamHtmlHelper extends  HtmlHelper
                 $currentClass = $options['class'];
             }
 
-            if (strpos($options['class'], 'nav-link') === false) {
+            if (strpos($currentClass, 'nav-link') === false) {
                 $options['class'] = trim($currentClass . ' ' . $url['action'] .  ' btn btn-link');
             }
         }

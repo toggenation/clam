@@ -1,6 +1,6 @@
 <?php foreach ($css as $style) : ?>
 
-    <?= $this->Html->css('/react' . $style, [
+    <?= $this->Html->css('/react/' . $style, [
             'block' => true
         ]); ?>
 <?php endforeach; ?>
