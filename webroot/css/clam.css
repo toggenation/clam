@@ -1,0 +1,229 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : May 30, 2016, 6:12:55 PM
+    Author     : jmcd
+*/
+
+/*div.checkbox {
+    font-size: 12px;
+    margin-top: 6px;
+}
+div.checkbox input[type=checkbox] {
+        margin: 2px 0 0;
+        margin-left: -20px;
+
+}*/
+div.alert.hidden {
+    height: 0;
+
+}
+label.form-check-label {
+    font-size: .875rem;
+}
+div.form-check {
+    margin-top: .18rem
+}
+
+.bring-forward {
+    z-index: 1000;
+    /* make things that where under jump target clickable by moving them above jumptarget*/
+}
+
+.jumptarget::before {
+    display: block;
+    content: " ";
+    margin-top: -85px;
+    height: 85px;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+
+.icon-1, .icon-3, .icon-4-top {
+	margin-top: 8px;
+}
+.icon-2, .icon-4 {
+	margin-top: 26px;
+}
+
+input.start-time {
+    width: 4.5rem;
+}
+
+input.clam-minutes {
+    width: 3rem;
+}
+/*
+td .form-group {
+   margin-bottom: 0px;
+}
+
+.form-group {
+	margin-bottom: 10px;
+}
+
+/*.checkbox {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 12px ;
+    line-height: 26 px;
+}
+
+.checkbox label {
+    line-height: 26px;
+
+}*/
+/*button.btn {
+    margin-top: 16px;
+}*/
+
+
+nav.navbar {
+  background-image: url("../img/heading_background_sm.png");
+}
+/*
+.tpad {
+    margin-top: 20px;
+}
+
+.living {
+    background-color: #961526;
+}
+
+.treasures {
+    background-color: #606970;
+}
+
+.apply {
+    background-color: #c18626;
+}
+
+.row.living, .row.treasures, .row.apply {
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+
+i.glyphicon-calendar {
+    margin-top: 6px;
+}
+
+
+label.control-label {
+	font-size: 11px;
+}
+.checkbox {
+    font-size: 11px;
+    margin-top: 8px !important;
+}
+
+*/
+
+/*
+input[type=checkbox], input[type=radio] {
+    margin: 1px 0 0;
+    margin-top: 1px\9;
+    line-height: normal;
+}
+
+
+input.bootstrap-timepicker-meridian, input.bootstrap-timepicker-hour, input.bootstrap-timepicker-minute {
+    font-size: 11px;
+}
+
+td.day {
+    cursor: pointer;
+}
+
+.bpad {
+    margin-bottom: 20px;
+}
+
+
+ select.auxiliary {
+	 background: #E8E8EE !important;
+ }
+*/
+
+div.datepicker {
+    z-index: 10000;
+}
+
+
+a.desc::before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f0dd\00a0";
+
+}
+
+a.asc::before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f0de\00a0";
+
+}
+
+
+a.btn.add::before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f055\00a0";
+  }
+
+  a.btn.delete::before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f2ed\00a0";
+  }
+
+
+
+  a.btn.up::before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f0d8\00a0";
+  }
+
+  a.btn.down::before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f0d7\00a0";
+  }
+
+
+
+  a.btn.edit::before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f044\00a0";
+  }
+
+  a.btn.save::before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f00c\00a0";
+  }
+
+  a.btn.cancel::before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f00d\00a0";
+  }
+
+
+  a.btn.reprint::before, a.btn.reprint::before  {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f02f\00a0";
+  }
+
+  a.btn.view::before {
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    content: "\f06e\00a0";
+  }

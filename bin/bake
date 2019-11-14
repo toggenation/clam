@@ -1,0 +1,10 @@
+echo Removing tmp files
+
+find ./tmp -type f | xargs rm -f
+
+echo Baking
+
+bin/cake bake model all
+bin/cake bake controller all
+bin/cake bake template all
+

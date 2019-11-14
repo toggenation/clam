@@ -1,0 +1,14 @@
+
+button:disabled,
+select:disabled,
+input[type=checkbox]:disabled+label,
+input[type=checkbox]:disabled,
+input:disabled {
+    cursor: not-allowed;
+}
+
+input[type=checkbox], input[type=checkbox]+label {
+    cursor: pointer;
+}
+
+

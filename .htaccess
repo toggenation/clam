@@ -1,0 +1,11 @@
+SetEnv CAKEPHP_DEBUG 1
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    #RewriteBase /clam
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule    ^$    webroot/    [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+
+    RewriteRule    (.*) webroot/$1    [L]
+</IfModule>

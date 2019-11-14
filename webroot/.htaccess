@@ -1,0 +1,8 @@
+# Header set Access-Control-Allow-Origin "*"
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /webroot/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
