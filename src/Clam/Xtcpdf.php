@@ -25,7 +25,7 @@ class Xtcpdf extends \TCPDF
      * array containing column widths for assignments
      * @var array
      */
-    protected $_cols = [
+    protected $cols = [
         10, // time
         93, // partname
         41, // assistant
@@ -146,16 +146,18 @@ class Xtcpdf extends \TCPDF
     {
         parent::__construct();
 
-        $this->_total_width = array_sum($this->_cols);
+        $this->_total_width = array_sum($this->cols);
 
         $this->SetDrawColorArray($this->_border_color);
     }
 
-    public function setUser($user) {
+    public function setUser($user)
+    {
         $this->user = $user;
     }
 
-    public function getUser() {
+    public function getUser()
+    {
         return $this->user;
     }
 
@@ -213,7 +215,7 @@ class Xtcpdf extends \TCPDF
 
         $this->MultiCell($this->_colorHeadingWidth, 0, '', 'LTB', 'L', 1, $ln = 0, '', '', true);
 
-        $col2 = ($this->_cols[0] + $this->_cols[1]) - $this->_colorHeadingWidth;
+        $col2 = ($this->cols[0] + $this->cols[1]) - $this->_colorHeadingWidth;
 
         $this->setCellPaddings(0, 0, 0, 0);
 
@@ -223,28 +225,60 @@ class Xtcpdf extends \TCPDF
             $col2,
             0,
             '',
-            'BT', 'L', 1, $line = 0, '', '', false,
-            $stretch = 0, $ishtml = false, $autopadding = false, $maxh = 0, $valign = 'M', $fitcell = false
+            'BT',
+            'L',
+            1,
+            $line = 0,
+            '',
+            '',
+            false,
+            $stretch = 0,
+            $ishtml = false,
+            $autopadding = false,
+            $maxh = 0,
+            $valign = 'M',
+            $fitcell = false
         );
 
         $this->MultiCell(
-            $this->_cols[2],
+            $this->cols[2],
             0,
             $values['auxTitle'],
-            'BT', 'L', 1, $line = 0, '', '', false,
-            $stretch = 0, $ishtml = false, $autopadding = false, $maxh = 0, $valign = 'M', $fitcell = true
+            'BT',
+            'L',
+            1,
+            $line = 0,
+            '',
+            '',
+            false,
+            $stretch = 0,
+            $ishtml = false,
+            $autopadding = false,
+            $maxh = 0,
+            $valign = 'M',
+            $fitcell = true
         );
 
         $this->MultiCell(
-            $this->_cols[3],
+            $this->cols[3],
             0,
             $values['mainTitle'],
-            'BTR', 'L', 1, 1, '', '', false,
-            $stretch = 0, $ishtml = false, $autopadding = false, $maxh = 0, $valign = 'M', $fitcell = true
+            'BTR',
+            'L',
+            1,
+            1,
+            '',
+            '',
+            false,
+            $stretch = 0,
+            $ishtml = false,
+            $autopadding = false,
+            $maxh = 0,
+            $valign = 'M',
+            $fitcell = true
         );
 
         $this->_endTrans(__FUNCTION__, $values);
-
     }
 
     /**
@@ -280,19 +314,18 @@ class Xtcpdf extends \TCPDF
 
             $this->SetFont('helvetica', 'B', 10);
 
-            $this->MultiCell($this->_cols[0] + $this->_cols[1] + $this->_cols[2], 0, "Chairman: ", 'L', 'R', 1, $line = 0, '', '', true);
+            $this->MultiCell($this->cols[0] + $this->cols[1] + $this->cols[2], 0, "Chairman: ", 'L', 'R', 1, $line = 0, '', '', true);
 
             $this->SetFont('helvetica', '', 10);
-            $this->MultiCell($this->_cols[3], 0, $chairman, 'R', 'L', 1, $line = 1, '', '', true);
+            $this->MultiCell($this->cols[3], 0, $chairman, 'R', 'L', 1, $line = 1, '', '', true);
             $this->SetFont('helvetica', 'B', 10);
 
-            $this->MultiCell($this->_cols[0] + $this->_cols[1] + $this->_cols[2], 0, "Auxiliary Classroom Counselor: ", 'LB', 'R', 1, $line = 0, '', '', true);
+            $this->MultiCell($this->cols[0] + $this->cols[1] + $this->cols[2], 0, "Auxiliary Classroom Counselor: ", 'LB', 'R', 1, $line = 0, '', '', true);
             $this->SetFont('helvetica', '', 10);
-            $this->MultiCell($this->_cols[3], 0, $aux_counselor, 'RB', 'L', 1, $line = 1, '', '', true);
+            $this->MultiCell($this->cols[3], 0, $aux_counselor, 'RB', 'L', 1, $line = 1, '', '', true);
         }
 
         $this->_endTrans(__FUNCTION__, $txt);
-
     }
 
     /**
@@ -319,8 +352,19 @@ class Xtcpdf extends \TCPDF
             $this->_total_width - $this->_colorHeadingWidth,
             0,
             '',
-            'BTR', 'L', 1, $line = 1, '', '', false,
-            $stretch = 0, $ishtml = false, $autopadding = false, $maxh = 0, $valign = 'M', $fitcell = false
+            'BTR',
+            'L',
+            1,
+            $line = 1,
+            '',
+            '',
+            false,
+            $stretch = 0,
+            $ishtml = false,
+            $autopadding = false,
+            $maxh = 0,
+            $valign = 'M',
+            $fitcell = false
         );
 
         $this->_endTrans(__FUNCTION__, $txt);
@@ -346,19 +390,19 @@ class Xtcpdf extends \TCPDF
             $this->_colorHeadingWidth, // width
             0, // h
             $txt, // text
-             'TBL', // border
-             'L', // align
+            'TBL', // border
+            'L', // align
             1, // fill
             0, // ln
-             '', // x
-             '', //y
-            true//reseth
+            '', // x
+            '', //y
+            true //reseth
         );
         $this->SetFont($this->_titleFont, '', 9);
         // $this->SetFillColor(255, 255, 255); // apply
         $this->SetTextColor(0, 0, 0); //black
         $this->SetFillColor(237, 245, 247); // light blue gray
-        $col2 = ($this->_cols[0] + $this->_cols[1]) - $this->_colorHeadingWidth;
+        $col2 = ($this->cols[0] + $this->cols[1]) - $this->_colorHeadingWidth;
 
         $this->setCellPaddings(0, 0, 0, 0);
 
@@ -366,24 +410,57 @@ class Xtcpdf extends \TCPDF
             $col2,
             0,
             '',
-            'BT', 'L', 1, $line = 0, '', '', false,
-            $stretch = 0, $ishtml = false, $autopadding = false, $maxh = 0, $valign = 'M', $fitcell = false
+            'BT',
+            'L',
+            1,
+            $line = 0,
+            '',
+            '',
+            false,
+            $stretch = 0,
+            $ishtml = false,
+            $autopadding = false,
+            $maxh = 0,
+            $valign = 'M',
+            $fitcell = false
         );
 
         $this->MultiCell(
-            $this->_cols[2],
+            $this->cols[2],
             0,
             'Student/Assistant',
-            'BT', 'L', 1, $line = 0, '', '', false,
-            $stretch = 0, $ishtml = false, $autopadding = false, $maxh = 0, $valign = 'M', $fitcell = false
+            'BT',
+            'L',
+            1,
+            $line = 0,
+            '',
+            '',
+            false,
+            $stretch = 0,
+            $ishtml = false,
+            $autopadding = false,
+            $maxh = 0,
+            $valign = 'M',
+            $fitcell = false
         );
 
         $this->MultiCell(
-            $this->_cols[3],
+            $this->cols[3],
             0,
             'Student/Assistant',
-            'BTR', 'L', 1, 1, '', '', false,
-            $stretch = 0, $ishtml = false, $autopadding = false, $maxh = 0, $valign = 'M', $fitcell = false
+            'BTR',
+            'L',
+            1,
+            1,
+            '',
+            '',
+            false,
+            $stretch = 0,
+            $ishtml = false,
+            $autopadding = false,
+            $maxh = 0,
+            $valign = 'M',
+            $fitcell = false
         );
         $this->_endTrans(__FUNCTION__, $txt);
     }
@@ -414,12 +491,22 @@ class Xtcpdf extends \TCPDF
             $this->_total_width - $this->_colorHeadingWidth,
             0,
             '',
-            'BTR', 'L', 1, $line = 1, '', '', false,
-            $stretch = 0, $ishtml = false, $autopadding = false, $maxh = 0, $valign = 'M', $fitcell = false
+            'BTR',
+            'L',
+            1,
+            $line = 1,
+            '',
+            '',
+            false,
+            $stretch = 0,
+            $ishtml = false,
+            $autopadding = false,
+            $maxh = 0,
+            $valign = 'M',
+            $fitcell = false
         );
 
         $this->_endTrans(__FUNCTION__, $txt);
-
     }
 
     /**
@@ -440,7 +527,6 @@ class Xtcpdf extends \TCPDF
 
         // set cell margins
         $this->setCellMargins(0, 0, 0, 0);
-
     }
 
     public function meetingNote($values = [])
@@ -491,10 +577,8 @@ class Xtcpdf extends \TCPDF
             } else {
                 $newval = $values[$field];
             }
-
         }
         return $newval;
-
     }
     /**
      *
@@ -531,10 +615,10 @@ class Xtcpdf extends \TCPDF
         $borders = 0;
 
         // time
-        $cell_count[] = $this->MultiCell($this->_cols[0], $this->_line_height, $values['time'], $borders, 'C', 0, 0, '', '', true); //time
+        $cell_count[] = $this->MultiCell($this->cols[0], $this->_line_height, $values['time'], $borders, 'C', 0, 0, '', '', true); //time
 
         // partname
-        $cell_count[] = $this->MultiCell($this->_cols[1], $this->_line_height, $values['partname'], $borders, 'L', 0, 0, '', '', true);
+        $cell_count[] = $this->MultiCell($this->cols[1], $this->_line_height, $values['partname'], $borders, 'L', 0, 0, '', '', true);
 
         $this->_clamFontSet($values, 'assistant');
 
@@ -553,26 +637,41 @@ class Xtcpdf extends \TCPDF
         }
 
         $cell_count[] = $this->MultiCell(
-            $this->_cols[2], $this->_line_height,
+            $this->cols[2],
+            $this->_line_height,
             $this->formatAssignments(
                 $values,
                 $field1,
                 $other1
             ),
-            $borders, 'L', false, 0, '', '', true);
+            $borders,
+            'L',
+            false,
+            0,
+            '',
+            '',
+            true
+        );
 
         $this->_clamFontSet($values, 'assigned');
 
         // assigned
         $cell_count[] = $this->MultiCell(
-            $this->_cols[3],
+            $this->cols[3],
             $this->_line_height,
             $this->formatAssignments(
                 $values,
                 $field2,
                 $other2
             ),
-            $borders, 'L', false, 0, '', '', true);
+            $borders,
+            'L',
+            false,
+            0,
+            '',
+            '',
+            true
+        );
 
         //\Cake\Log\LogTrait::log($cell_count);
 
@@ -590,7 +689,6 @@ class Xtcpdf extends \TCPDF
 
         // check for page jump
         $this->_endTrans(__FUNCTION__, $values);
-
     }
 
     protected function _clamFontSet($values, $stage = null)
@@ -614,7 +712,6 @@ class Xtcpdf extends \TCPDF
         if (!$values['school_title'] && $stage == 'assigned') {
             $this->SetFont($this->_bodyFont, '', 10);
         }
-
     }
     /**
      * Starts a transaction
@@ -676,9 +773,7 @@ class Xtcpdf extends \TCPDF
             }
 
             $this->$method_name($value, $this->_chairman, $this->_aux_counselor);
-
         }
-
     }
 
     public function Footer()
@@ -696,19 +791,21 @@ class Xtcpdf extends \TCPDF
         //$this->MultiCell($w, $h, $txt, $border, $align, $fill, $ln, $x, $y, $reseth, $stretch, $ishtml, $autopadding)
 
         // attribution
-        $this->MultiCell(60, // $w
+        $this->MultiCell(
+            60, // $w
             0, // $h
-             'Created ' . $cakephp_date->i18nFormat('dd MMM yyyy') . ' by ' . Configure::read('CLAM.app_name'), // $txt
+            'Created ' . $cakephp_date->i18nFormat('dd MMM yyyy') . ' by ' . Configure::read('CLAM.app_name'), // $txt
             0, // $border
             $align = 'L', // align
             $fill = 0, // no fill
             0, // ln
             15, // x
-             '', //y
-            true//reseth, ishtml, autopadding;
+            '', //y
+            true //reseth, ishtml, autopadding;
         );
         // page number centred
-        $this->MultiCell(25, // $w
+        $this->MultiCell(
+            25, // $w
             0, // $h
             $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), // $txt
             0, // $border
@@ -716,8 +813,8 @@ class Xtcpdf extends \TCPDF
             $fill = 0, // no fill
             0, // ln
             100, // x
-             '', //y
-            true//reseth, ishtml, autopadding;
+            '', //y
+            true //reseth, ishtml, autopadding;
         );
         // school info
         /*$this->MultiCell(   40, // $w
@@ -732,7 +829,6 @@ class Xtcpdf extends \TCPDF
     true //reseth, ishtml, autopadding;
     );
      */
-
     }
 
     /** returns
@@ -758,5 +854,4 @@ class Xtcpdf extends \TCPDF
         //return ( (int) $stored_id === 2 && !$complete[$stored_id] ) ? true : false;
         return false;
     }
-
 }

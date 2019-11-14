@@ -17,9 +17,9 @@ $pdf = new Xtcpdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8'
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor($userInfo->full_name);
 
-$pdf->SetTitle(sprintf('Christian Life and Ministry %s %s', $schedule->month, $schedule->full_year ));
-$pdf->SetSubject(sprintf('Christian Life and Ministry Schedule for  %s %s', $schedule->month, $schedule->full_year ));
-$pdf->SetKeywords("CLAM CLM Schedule Program Meeting Service Meeting");
+$pdf->SetTitle(sprintf(Configure::read('CLAM.pdfTitle'), $schedule->month, $schedule->full_year));
+$pdf->SetSubject(sprintf(Configure::read('CLAM.pdfSubject'), $schedule->month, $schedule->full_year));
+$pdf->SetKeywords(Configure::read('CLAM.pdfKeywords'));
 
 // remove default header/footer
 $pdf->setPrintHeader(false);
@@ -38,7 +38,7 @@ $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 $pdf->AddPage();
 
 
-$pdf->clamTitle([ Configure::read("CLAM.congregation"), Configure::read("CLAM.title"), $schedule->month, $schedule->full_year]);
+$pdf->clamTitle([Configure::read("CLAM.congregation"), Configure::read("CLAM.title"), $schedule->month, $schedule->full_year]);
 
 // these are the functions we want to call
 
@@ -54,16 +54,16 @@ if ($schedule->has('meetings')) {
     foreach ($schedule->meetings as $key => $mtg) {
 
 
-			//$this->log($mtg);
-				$pdf->_aux_counselor = $mtg->has('auxiliary_counselor') ? $mtg->auxiliary_counselor->full_name: null;
+        //$this->log($mtg);
+        $pdf->_aux_counselor = $mtg->has('auxiliary_counselor') ? $mtg->auxiliary_counselor->full_name : null;
 
-				$pdf->_chairman = $mtg->has('chairman') ? $mtg->chairman->full_name: null;
+        $pdf->_chairman = $mtg->has('chairman') ? $mtg->chairman->full_name : null;
 
         $pdf->meetingTitle(
-					strtoupper($this->Time->format($mtg->date, 'eeee MMMM d')),
-					$pdf->_chairman,
-					$pdf->_aux_counselor
-				);
+            strtoupper($this->Time->format($mtg->date, 'eeee MMMM d')),
+            $pdf->_chairman,
+            $pdf->_aux_counselor
+        );
 
         // meeting parts
         if ($mtg->has('assigned')) {
@@ -94,42 +94,40 @@ if ($schedule->has('meetings')) {
 
                 $ass_id = (int) $assigned_part->part_id;
 
-								if ( $ass_id === $pdf->bible_reading) {
+                if ($ass_id === $pdf->bible_reading) {
 
-										$auxTitle = "Auxiliary Classroom";
-										$mainTitle = "Main Hall";
+                    $values = [
+                        'auxTitle' => "Auxiliary Classroom",
+                        'mainTitle' => "Main Hall"
+                    ];
 
-										$values = [ 'auxTitle' => $auxTitle , 'mainTitle' => $mainTitle];
+                    $pdf->schoolTitle($values);
+                }
 
-									  $pdf->schoolTitle($values);
-								}
-
-								$pdf->_prefixedAssistant = !empty($assigned_part->part->assistant_prefix);
+                $pdf->_prefixedAssistant = !empty($assigned_part->part->assistant_prefix);
 
                 $values = [
-										'ass_id' => $ass_id,
-										'has_auxliary' => $assigned_part->part->has_auxiliary,
-										'has_assistant' => $assigned_part->part->assistant,
+                    'ass_id' => $ass_id,
+                    'has_auxliary' => $assigned_part->part->has_auxiliary,
+                    'has_assistant' => $assigned_part->part->assistant,
                     'time' => $this->Time->format($assigned_part->start_time, 'h:mm'),
-                    'partname' => $assigned_part->part_title . ' (' . $assigned_part->minutes . ' ' . $assigned_part->part->min_suffix . ')'  ,
+                    'partname' => $assigned_part->part_title . ' (' . $assigned_part->minutes . ' ' . $assigned_part->part->min_suffix . ')',
                     'assistant' => $assigned_part->has('assistant') ? $pdf->assistantFormat($assigned_part->assistant->full_name, $assigned_part->part->assistant_prefix) : null,
                     'assigned' => $assigned_part->has('person') ? $assigned_part->person->full_name : null,
-										'aux_assigned' => $assigned_part->has('aux_assigned') ? $assigned_part->aux_assigned->full_name : null,
-										'aux_assistant' => $assigned_part->has('aux_assistant') ? $assigned_part->aux_assistant->full_name : null,
+                    'aux_assigned' => $assigned_part->has('aux_assigned') ? $assigned_part->aux_assigned->full_name : null,
+                    'aux_assistant' => $assigned_part->has('aux_assistant') ? $assigned_part->aux_assistant->full_name : null,
 
                 ];
 
-								$pdf->last_record = $j === $lastArrayKey;
+                $pdf->last_record = $j === $lastArrayKey;
 
                 $pdf->assignment($values);
-
             }
         }
 
-        if ( $mtg->has('meeting_note')){
+        if ($mtg->has('meeting_note')) {
 
-            $pdf->meetingNote([ 'heading' => $mtg->meeting_note->heading, 'note' => $mtg->meeting_note->note]);
-
+            $pdf->meetingNote(['heading' => $mtg->meeting_note->heading, 'note' => $mtg->meeting_note->note]);
         }
 
         // reset so we can print the meeting titles again
@@ -143,9 +141,7 @@ if ($schedule->has('meetings')) {
             $pdf->AddPage();
             $pdf->clamTitle($pdf->_clamTitle);
         }
-
     }
-
 }
 
 $pdf->Output($file_name, 'I');
