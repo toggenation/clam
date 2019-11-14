@@ -25,11 +25,6 @@ echo $this->Nav->create([
 <?=$this->Nav->link("Sections", ['controller' => 'sections', 'action' => 'index']);?>
 <?=$this->Nav->link("Parts", ['controller' => 'parts', 'action' => 'index']);?>
 <?=$this->Nav->divider();?>
-<?=$this->Nav->header('CL&M Schedules');?>
-<?=$this->Nav->link("Schedules", ['controller' => 'schedules', 'action' => 'index']);?>
-<?=$this->Nav->link("Meetings", ['controller' => 'meetings', 'action' => 'index']);?>
-<?=$this->Nav->link("Meeting Notes", ['controller' => 'MeetingNotes', 'action' => 'index']);?>
-<?=$this->Nav->link("Assigned Parts", ['controller' => 'assigned', 'action' => 'index']);?>
 <?=$this->Nav->header('App Settings');?>
 <?=$this->Nav->link("Settings", ['controller' => 'Settings', 'action' => 'configure']);?>
 <?=$this->Nav->endMenu();?>
