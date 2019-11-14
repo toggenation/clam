@@ -15,7 +15,6 @@
         "twbs/bootstrap": "^4.0",
         "friendsofcake/crud": "^5.4.1",
         "admad/cakephp-jwt-auth": "^2.0",
-        "moment/moment": "^2.22",
         "fzaninotto/faker": "^1.8"
     },
     "require-dev": {
