@@ -1,7 +1,7 @@
 # Christian Life & Ministry Creator
 
 ## About
-An web based application that can be used to manually assign parts on the CL&M Meeting
+A web based application that assists creating the monthly CLAM schedule
 
 ## CL&M Creator Uses
 * [CakePHP](http://cakephp.org) 3.x.
@@ -93,15 +93,20 @@ An web based application that can be used to manually assign parts on the CL&M M
     *  Privileges
     *  Parts
 
-7. Use the `Schedules` menu to create, edit and update meeting schedules
+7. Use the `Schedules` menu item to create, edit and update meeting schedules
 
 ## Sample of PDF Schedule Output
-
+PDF Output is created using TCPDF
 [CLAM Example](docs/sample/2019-11_Nov_CLM.pdf)
 
 ## Screen shot of schedule edit screen
 
-This is a React Single Page Application. The React code is located in the clam-react folder
+This is a React Single Page Application (SPA). The React code is located in the clam-react folder and built as follows
+
+```
+cd clam-react
+npm run build
+```
 
 ![React](docs/images/schedule_edit_spa.png)
 
