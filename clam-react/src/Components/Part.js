@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Col from 'reactstrap/lib/Col'
 import Row from 'reactstrap/lib/Row';
@@ -8,9 +7,6 @@ import {
     faTrashAlt,
     faPlusCircle,
     faMusic,
-    faUser
-
-
 } from "@fortawesome/free-solid-svg-icons";
 
 import { connect } from "react-redux";
@@ -103,8 +99,7 @@ class Part extends Component {
             return null;
         }
 
-
-        const savedStartTimeFormatted = moment(startTime).format("h:mm A");
+        const savedStartTimeFormatted = utils.formatDate(startTime, "h:mm A")
 
         return (
             <Row form className='mt-1'>
@@ -364,16 +359,6 @@ class Part extends Component {
                         meetingId={meetingId}
                         indexNumber={indexNumber}
                     />
-                     {/*<ClickableIconWrappedInDiv
-                        style={{ cursor: pointer }}
-                        clicked={() => console.log('list history' , isPublished, partId, meetingId, indexNumber)}
-                        isPublished={isPublished}
-                        icon={faUser}
-                        title="Reset fields to default values"
-                        partId={partId}
-                        meetingId={meetingId}
-                        indexNumber={indexNumber}
-                     />*/}
                 </Col>
             </Row>
         );

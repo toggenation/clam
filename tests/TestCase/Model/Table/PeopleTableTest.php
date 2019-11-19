@@ -28,11 +28,11 @@ class PeopleTableTest extends TestCase
         'app.assigned',
         'app.meetings',
         'app.schedules',
-        'app.privileges',
+        'app.roles',
         'app.parts',
         'app.sections',
-        'app.parts_privileges',
-        'app.people_privileges'
+        'app.parts_roles',
+        'app.people_roles'
     ];
 
     /**

@@ -9,7 +9,14 @@ import Root from "./Components/Root";
 import { Provider } from "react-redux";
 import store, { history } from "./Redux/store";
 import { setApiUrl } from "./Redux/actions/actionCreators";
+
 import "moment/locale/en-au";
+
+import moment from "moment";
+
+const userLang = navigator.language || navigator.userLanguage;
+
+moment.locale(userLang);
 
 const root = document.getElementById("root");
 let API_URL = root.getAttribute("baseurl");

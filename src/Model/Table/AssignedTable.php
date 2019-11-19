@@ -159,7 +159,7 @@ class AssignedTable extends Table
 
     public function findAPIMeetingPrivs($priv_name = null)
     {
-        $meetingPrivs = $this->Parts->Privileges->find()
+        $meetingPrivs = $this->Parts->Roles->find()
             ->contain(
                 "People", function ($q) {
                     return $q->select(
@@ -175,7 +175,7 @@ class AssignedTable extends Table
                         ])->where(['People.active' => true])->order([ 'People.firstname' => 'ASC']);
                 }
             )
-            ->where(['privilege' => $priv_name])->first();
+            ->where(['role' => $priv_name])->first();
         $people = $meetingPrivs->toArray();
 
         $people = $people['people'];
@@ -195,7 +195,7 @@ class AssignedTable extends Table
 
     public function findMeetingPrivs($priv_name = null)
     {
-        $meetingPrivs = $this->Parts->Privileges->find()
+        $meetingPrivs = $this->Parts->Roles->find()
             ->contain(
                 "People", function ($q) {
                     return $q->select(
@@ -211,7 +211,7 @@ class AssignedTable extends Table
                         ])->where(['People.active' => true])->order([ 'People.firstname' => 'ASC']);
                 }
             )
-            ->where(['privilege' => $priv_name])->first();
+            ->where(['role' => $priv_name])->first();
         $people = $meetingPrivs->toArray();
 
         $people = $people['people'];
@@ -383,10 +383,10 @@ class AssignedTable extends Table
 
     public function find_privs()
     {
-        $people_privileges = $this->Parts->find()
+        $people_roles = $this->Parts->find()
             ->contain([
-                'Privileges',
-                'Privileges.People' => function ($q) {
+                'Roles',
+                'Roles.People' => function ($q) {
                     return $q->select(['id', 'firstname', 'lastname'])
                         ->where(['People.active' => true])
                         ->order([
@@ -397,15 +397,15 @@ class AssignedTable extends Table
             ])
             ->where(["Parts.active" => true]);
 
-        //$this->log(['peoplePrivs' => $people_privileges->toArray()]);
-        $ret = $people_privileges->map(function ($value, $key) {
+        //$this->log(['peoplePrivs' => $people_roles->toArray()]);
+        $ret = $people_roles->map(function ($value, $key) {
             $part_id = $value->id;
 
             $pplr = [
                 'assistant' => false,
                 'assigned' => false,
             ];
-            $ppla = Hash::extract($value, 'privileges');
+            $ppla = Hash::extract($value, 'roles');
 
             //$this->log(['ppla' => $ppla]);
             foreach ($ppla as $pp) {
@@ -420,20 +420,20 @@ class AssignedTable extends Table
             ;
         }); // end map
 
-        $privileges = [];
+        $roles = [];
         foreach ($ret as $r) {
-            $privileges += $r;
+            $roles += $r;
         }
 
-        return $privileges;
+        return $roles;
     }
 
     public function findPrivsApi()
     {
-        $people_privileges = $this->Parts->find()
+        $people_roles = $this->Parts->find()
             ->contain([
-                'Privileges',
-                'Privileges.People' => function ($q) {
+                'Roles',
+                'Roles.People' => function ($q) {
                     return $q->select(['id', 'firstname', 'lastname'])
                         ->where(['People.active' => true])
                         ->order([
@@ -444,8 +444,8 @@ class AssignedTable extends Table
             ])
             ->where(["Parts.active" => true]);
 
-        //$this->log(['peoplePrivs' => $people_privileges->toArray()]);
-        $ret = $people_privileges->map(function ($value, $key) {
+        //$this->log(['peoplePrivs' => $people_roles->toArray()]);
+        $ret = $people_roles->map(function ($value, $key) {
             $part_id = $value->id;
             $partName = $value->partname;
             $brother = $value->brother;
@@ -458,7 +458,7 @@ class AssignedTable extends Table
                 'assistant' => false,
                 'assigned' => false,
             ];
-            $ppla = Hash::extract($value, 'privileges');
+            $ppla = Hash::extract($value, 'roles');
 
             //$this->log(['ppla' => $ppla]);
             foreach ($ppla as $pp) {
@@ -493,12 +493,12 @@ class AssignedTable extends Table
             ];
         }); // end map
 
-        $privileges = [];
+        $roles = [];
         foreach ($ret as $r) {
-            $privileges += $r;
+            $roles += $r;
         }
 
-        return $privileges;
+        return $roles;
     }
 
     /**

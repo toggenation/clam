@@ -4,10 +4,10 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * PrivilegesFixture
+ * RolesFixture
  *
  */
-class PrivilegesFixture extends TestFixture
+class RolesFixture extends TestFixture
 {
 
     /**
@@ -18,7 +18,7 @@ class PrivilegesFixture extends TestFixture
     // @codingStandardsIgnoreStart
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'privilege' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
+        'role' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         '_constraints' => [
@@ -39,7 +39,7 @@ class PrivilegesFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'privilege' => 'Lorem ipsum dolor sit amet',
+            'role' => 'Lorem ipsum dolor sit amet',
             'created' => '2016-05-28 03:43:46',
             'modified' => '2016-05-28 03:43:46'
         ],

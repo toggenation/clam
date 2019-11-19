@@ -33,7 +33,13 @@ class PeopleSeeder extends AbstractSeed
                 'modified'      => date('Y-m-d H:i:s')
             ];
         }
+        // truncate first
 
-        $this->insert('people', $data);
+        $people = $this->table('people');
+        $people_roles = $this->table('people_roles');
+        $people_roles->truncate();
+        $people->truncate();
+
+        $people->insert($data)->save();
     }
 }

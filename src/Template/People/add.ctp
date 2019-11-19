@@ -2,10 +2,10 @@
     <div class="col-lg-2"><ul class="nav flex-column nav-pills">
         <li class="heading"><?= __('Actions') ?></li>
         <li class="nav-item"><?= $this->Html->link(__('List People'), ['action' => 'index'], ['class' => 'nav-link' ]) ?></li>
-        <li class="nav-item"><?= $this->Html->link(__('List Assigned'), ['controller' => 'Assigned', 'action' => 'index'], ['class' => 'nav-link' ]) ?></li>
-        <li class="nav-item"><?= $this->Html->link(__('New Assigned'), ['controller' => 'Assigned', 'action' => 'add'], ['class' => 'nav-link' ]) ?></li>
-        <li class="nav-item"><?= $this->Html->link(__('List Privileges'), ['controller' => 'Privileges', 'action' => 'index'], ['class' => 'nav-link' ]) ?></li>
-        <li class="nav-item"><?= $this->Html->link(__('New Privilege'), ['controller' => 'Privileges', 'action' => 'add'], ['class' => 'nav-link' ]) ?></li>
+
+
+        <li class="nav-item"><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index'], ['class' => 'nav-link' ]) ?></li>
+        <li class="nav-item"><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add'], ['class' => 'nav-link' ]) ?></li>
     </ul>
 </div>
 <div class="col-lg-10">
@@ -23,9 +23,9 @@
         ]);
             echo $this->Form->input('firstname');
             echo $this->Form->input('lastname');
-            echo $this->Form->input('privileges._ids',  [
+            echo $this->Form->input('roles._ids',  [
                 'multiple' => 'checkbox',
-                'options' => $privileges]);
+                'options' => $roles]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

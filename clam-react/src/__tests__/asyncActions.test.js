@@ -1,7 +1,7 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import * as actions from "../Redux/actions/actionCreators";
-import * as asyncActions from "../Redux/actions/asyncActions";
+import * as asyncActions from "../Redux/actions/async/asyncActions";
 import types from "../Redux/actions/actionTypes";
 import fetchMock from "fetch-mock";
 import myMockStore from "../__mockStore/asyncActionsMockStore";
@@ -17,7 +17,7 @@ describe("async actions", () => {
 
     it("deleteMeetingFromCake", () => {
         fetchMock.postOnce(
-            "http://clam.tgn/api/meetings/delete/214",
+            "http://clam-gh.tgn/api/meetings/delete/214",
             {
                 body: {
                     success: true,

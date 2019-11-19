@@ -2,7 +2,7 @@ import mockStore from "../__mockStore/addMeetingMockStore";
 import {
     formatAssignmentsForPostToCake,
     getActiveMeetingParts
-} from "../Redux/actions/asyncActions";
+} from "../Redux/actions/async/asyncActions";
 
 describe("addMeetingParts", () => {
     it("will format the meeting parts for load to Cake correctly", () => {

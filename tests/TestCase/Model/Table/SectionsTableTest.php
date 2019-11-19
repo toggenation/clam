@@ -26,13 +26,13 @@ class SectionsTableTest extends TestCase
     public $fixtures = [
         'app.sections',
         'app.parts',
-        'app.privileges',
-        'app.parts_privileges',
+        'app.roles',
+        'app.parts_roles',
         'app.people',
         'app.assigned',
         'app.meetings',
         'app.schedules',
-        'app.people_privileges'
+        'app.people_roles'
     ];
 
     /**

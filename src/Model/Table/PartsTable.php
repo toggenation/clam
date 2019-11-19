@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Sections
  * @property \Cake\ORM\Association\HasMany $Assigned
- * @property \Cake\ORM\Association\BelongsToMany $Privileges
+ * @property \Cake\ORM\Association\BelongsToMany $Roles
  */
 class PartsTable extends Table
 {
@@ -37,10 +37,10 @@ class PartsTable extends Table
         $this->hasMany('Assigned', [
             'foreignKey' => 'part_id'
         ]);
-        $this->belongsToMany('Privileges', [
+        $this->belongsToMany('Roles', [
             'foreignKey' => 'part_id',
-            'targetForeignKey' => 'privilege_id',
-            'joinTable' => 'parts_privileges'
+            'targetForeignKey' => 'role_id',
+            'joinTable' => 'parts_roles'
         ]);
     }
 

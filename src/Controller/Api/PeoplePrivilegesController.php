@@ -14,7 +14,7 @@ use App\Controller\Api\AppController;
  *
  * @author jmcd
  */
-class PeoplePrivilegesController extends AppController{
+class PeopleRolesController extends AppController{
      public $paginate = [
         'page' => 1,
         'limit' => 5,

@@ -58,7 +58,7 @@ $icon_glyph = $this->Icon->faIcon($icon);
 
                     <?=
 $this->Html->link(
-    $icon_glyph, ['controller' => 'assigned',
+       $icon_glyph , ['controller' => 'assigned',
         'action' => 'scheduleEdit', 'id' => $sched->id], [
         'title' => $sched->published ? "Published" : "Incomplete",
         'escape' => false,
@@ -117,7 +117,7 @@ echo $this->Form->postLink(
 								</td>
 								<td>
 										<?php echo $this->Form->postLink(
-    $this->Html->tag('i', '', ['class' => 'fas fa-trash-alt']),
+   "Delete",
     [
         'action' => 'delete',
         $sched->id,

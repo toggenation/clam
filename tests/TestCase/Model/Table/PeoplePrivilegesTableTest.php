@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\PeoplePrivilegesTable;
+use App\Model\Table\PeopleRolesTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PeoplePrivilegesTable Test Case
+ * App\Model\Table\PeopleRolesTable Test Case
  */
-class PeoplePrivilegesTableTest extends TestCase
+class PeopleRolesTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\PeoplePrivilegesTable
+     * @var \App\Model\Table\PeopleRolesTable
      */
-    public $PeoplePrivileges;
+    public $PeopleRoles;
 
     /**
      * Fixtures
@@ -24,15 +24,15 @@ class PeoplePrivilegesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.people_privileges',
+        'app.people_roles',
         'app.people',
         'app.assigned',
         'app.meetings',
         'app.schedules',
-        'app.privileges',
+        'app.roles',
         'app.parts',
         'app.sections',
-        'app.parts_privileges'
+        'app.parts_roles'
     ];
 
     /**
@@ -43,8 +43,8 @@ class PeoplePrivilegesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('PeoplePrivileges') ? [] : ['className' => 'App\Model\Table\PeoplePrivilegesTable'];
-        $this->PeoplePrivileges = TableRegistry::get('PeoplePrivileges', $config);
+        $config = TableRegistry::exists('PeopleRoles') ? [] : ['className' => 'App\Model\Table\PeopleRolesTable'];
+        $this->PeopleRoles = TableRegistry::get('PeopleRoles', $config);
     }
 
     /**
@@ -54,7 +54,7 @@ class PeoplePrivilegesTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->PeoplePrivileges);
+        unset($this->PeopleRoles);
 
         parent::tearDown();
     }

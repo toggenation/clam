@@ -177,13 +177,13 @@ class Base extends AbstractMigration
             ])
             ->create();
 
-        $this->table('parts_privileges')
+        $this->table('parts_roles')
             ->addColumn('part_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
                 'null' => false,
             ])
-            ->addColumn('privilege_id', 'integer', [
+            ->addColumn('role_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
                 'null' => false,
@@ -218,26 +218,26 @@ class Base extends AbstractMigration
             ])
             ->create();
 
-        $this->table('people_privileges')
+        $this->table('people_roles')
             ->addColumn('person_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
                 'null' => true,
             ])
-            ->addColumn('privilege_id', 'integer', [
+            ->addColumn('role_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
                 'null' => true,
             ])
             ->create();
 
-        $this->table('privileges')
+        $this->table('roles')
             ->addColumn('assistant', 'boolean', [
                 'default' => null,
                 'limit' => null,
                 'null' => false,
             ])
-            ->addColumn('privilege', 'string', [
+            ->addColumn('role', 'string', [
                 'default' => null,
                 'limit' => 45,
                 'null' => true,
@@ -345,10 +345,10 @@ class Base extends AbstractMigration
         $this->dropTable('meeting_notes');
         $this->dropTable('meetings');
         $this->dropTable('parts');
-        $this->dropTable('parts_privileges');
+        $this->dropTable('parts_roles');
         $this->dropTable('people');
-        $this->dropTable('people_privileges');
-        $this->dropTable('privileges');
+        $this->dropTable('people_roles');
+        $this->dropTable('roles');
         $this->dropTable('schedules');
         $this->dropTable('sections');
         $this->dropTable('users');

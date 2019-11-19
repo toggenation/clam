@@ -6,6 +6,7 @@
 <?php endforeach; ?>
 
 <script>
+    // disables react dev tools
     window.__REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function() {}
 </script>
 

@@ -1,4 +1,4 @@
-import moment from 'moment'
+import utils from '../../Utility/utilities';
 export const updateObject = ( oldObject, newValues ) => ({
         ...oldObject,
         ...newValues
@@ -28,7 +28,7 @@ export const calcPartStartTime = (meetings, meetingId, partIds, partEntities, pa
 
         if (partIdMap === partId) {
             haveSeen = true
-            partStartTime = moment(startTime, 'h:mmA')
+            partStartTime = utils.formatDate(startTime, 'h:mmA')
             newPartStartTime = partStartTime.add(totalMinutes, 'm')
         }
 

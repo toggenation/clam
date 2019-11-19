@@ -1,7 +1,7 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import * as actions from "../Redux/actions/actionCreators";
-import * as asyncActions from "../Redux/actions/asyncActions";
+import * as asyncActions from "../Redux/actions/async/asyncActions";
 import types from "../Redux/actions/actionTypes";
 import fetchMock from "fetch-mock";
 import { mockStore as mockState } from "../__mockStore/loadMeetingPartsToCake";
@@ -17,7 +17,7 @@ describe("async actions", () => {
 
     it("loads MeetingPartsToCake", () => {
         fetchMock.postOnce(
-            "http://clam.tgn/api/assigned/addAssignedParts",
+            "http://clam-gh.tgn/api/assigned/addAssignedParts",
             {
                 body: mockResponse,
                 headers: { "content-type": "application/json" }

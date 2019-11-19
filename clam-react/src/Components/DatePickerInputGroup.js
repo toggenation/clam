@@ -42,7 +42,7 @@ const DatePickerInputGroup = props => {
                     onSubmit={dates => {
                         dates.forEach(date => {
                             addMeetings(
-                                utils.formatDate(date, "DD/MM/YYYY"),
+                                utils.formatDate(date, "YYYY-MM-DD"),
                                 utils.getUUID()
                             );
                         });

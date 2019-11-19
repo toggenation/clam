@@ -6,7 +6,7 @@
 <!--<h3>How to use this web application</h3>
 
 <p>Firstly you need to add People. This is anyone who is potentially going to have a part on the CL&M Meeting</p>
-<p>Next you assign privileges to the People. The preconfigured privileges relate to what appears in the drop downs when you assign parts</p>
+<p>Next you assign roles to the People. The preconfigured roles relate to what appears in the drop downs when you assign parts</p>
 <p>Sections are the different sections of the meeting. These should stay the same unless something changes</p>
 <p>Parts are all the potential parts a meeting can have they are linked to the Sections and given a sort order so they appear in the right order on the finished Schedule</p>
 

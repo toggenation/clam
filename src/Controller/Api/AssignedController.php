@@ -40,11 +40,11 @@ class AssignedController extends AppController
 
     public function getPrivs()
     {
-        $privileges = $this->Assigned->findPrivsApi();
+        $roles = $this->Assigned->findPrivsApi();
         $meetingChairmen = $this->Assigned->findAPIMeetingPrivs('Chairman');
         $auxCounselors = $this->Assigned->findAPIMeetingPrivs('Auxiliary Classroom Counselor');
         $this->set(compact('meetingChairmen', 'auxCounselors'));
-        $this->set('privs', $privileges);
+        $this->set('privs', $roles);
         $this->set('_serialize', ['privs', 'meetingChairmen', 'auxCounselors']);
     }
 
@@ -80,7 +80,7 @@ class AssignedController extends AppController
 
         $auxCounselors = $this->Assigned->findMeetingPrivs('Auxiliary Classroom Counselor');
 
-        $privileges = $this->Assigned->find_privs();
+        $roles = $this->Assigned->find_privs();
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $meetings = $this->Assigned->Meetings;
@@ -155,7 +155,7 @@ class AssignedController extends AppController
                     'schedule',
                     'meetingChairmen',
                     'auxCounselors',
-                    'privileges',
+                    'roles',
                     'assigned',
                     'meetings',
                     'month',

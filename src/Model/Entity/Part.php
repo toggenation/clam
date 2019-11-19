@@ -15,7 +15,7 @@ use Cake\ORM\Entity;
  * @property int $section_id
  * @property \App\Model\Entity\Section $section
  * @property int $sort_order
- * @property \App\Model\Entity\Privilege[] $privileges
+ * @property \App\Model\Entity\Role[] $roles
  */
 class Part extends Entity
 {

@@ -11,15 +11,15 @@ use App\Controller\AppController;
 class PartsController extends AppController
 {
 
-    
+
     public $paginate = [
-       
+
             'order' =>
             [ 'Parts.sort_order' => 'asc'],
             'limit' => 6
     ];
 
- 
+
     /**
      * Index method
      *
@@ -47,8 +47,8 @@ class PartsController extends AppController
     {
         $part = $this->Parts->get($id, [
             'contain' => [
-                'Sections', 
-                'Privileges', 
+                'Sections',
+                'Roles',
                 'Assigned' => [
                     'Meetings',
                     'Assistants',
@@ -77,16 +77,16 @@ class PartsController extends AppController
                 $this->Flash->error(__('The part could not be saved. Please, try again.'));
             }
         }
-        
+
         $link_parts = $this->Parts->find('list',
                 ['keyField' => 'id',
                     'valueField' => 'partname']
-                
+
                 );
-        
+
         $sections = $this->Parts->Sections->find('list', ['limit' => 200]);
-        $privileges = $this->Parts->Privileges->find('list', ['limit' => 200]);
-        $this->set(compact('part', 'link_parts', 'sections', 'privileges'));
+        $roles = $this->Parts->Roles->find('list', ['limit' => 200]);
+        $this->set(compact('part', 'link_parts', 'sections', 'roles'));
         $this->set('_serialize', ['part']);
     }
 
@@ -100,7 +100,7 @@ class PartsController extends AppController
     public function edit($id = null)
     {
         $part = $this->Parts->get($id, [
-            'contain' => ['Privileges']
+            'contain' => ['Roles']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $part = $this->Parts->patchEntity($part, $this->request->data);
@@ -111,15 +111,15 @@ class PartsController extends AppController
                 $this->Flash->error(__('The part could not be saved. Please, try again.'));
             }
         }
-        
+
          $link_parts = $this->Parts->find('list',
                 ['keyField' => 'id',
                     'valueField' => 'partname']
-                
+
                 );
         $sections = $this->Parts->Sections->find('list', ['limit' => 200]);
-        $privileges = $this->Parts->Privileges->find('list', ['limit' => 200]);
-        $this->set(compact('part', 'sections', 'privileges', 'link_parts'));
+        $roles = $this->Parts->Roles->find('list', ['limit' => 200]);
+        $this->set(compact('part', 'sections', 'roles', 'link_parts'));
         $this->set('_serialize', ['part']);
     }
 

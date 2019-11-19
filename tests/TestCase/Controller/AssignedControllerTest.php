@@ -19,10 +19,10 @@ class AssignedControllerTest extends IntegrationTestCase
         'app.assigned',
         'app.parts',
         'app.sections',
-        'app.privileges',
-        'app.parts_privileges',
+        'app.roles',
+        'app.parts_roles',
         'app.people',
-        'app.people_privileges',
+        'app.people_roles',
         'app.meetings',
         'app.schedules'
     ];

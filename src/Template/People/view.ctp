@@ -11,10 +11,10 @@
                                     ]) ?> </li>
             <li class="nav-item"><?= $this->Html->link(__('List People'), ['action' => 'index'], ['class' => 'nav-link']) ?> </li>
             <li class="nav-item"><?= $this->Html->link(__('New Person'), ['action' => 'add'], ['class' => 'nav-link']) ?> </li>
-            <li class="nav-item"><?= $this->Html->link(__('List Assigned'), ['controller' => 'Assigned', 'action' => 'index'], ['class' => 'nav-link']) ?> </li>
-            <li class="nav-item"><?= $this->Html->link(__('New Assigned'), ['controller' => 'Assigned', 'action' => 'add'], ['class' => 'nav-link']) ?> </li>
-            <li class="nav-item"><?= $this->Html->link(__('List Privileges'), ['controller' => 'Privileges', 'action' => 'index'], ['class' => 'nav-link']) ?> </li>
-            <li class="nav-item"><?= $this->Html->link(__('New Privilege'), ['controller' => 'Privileges', 'action' => 'add'], ['class' => 'nav-link']) ?> </li>
+
+
+            <li class="nav-item"><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index'], ['class' => 'nav-link']) ?> </li>
+            <li class="nav-item"><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add'], ['class' => 'nav-link']) ?> </li>
         </ul>
     </div>
     <div class="col-lg-10">
@@ -75,26 +75,26 @@
             <?php endif; ?>
         </div>
         <div class="related">
-            <h4><?= __('Related Privileges') ?></h4>
-            <?php if (!empty($person->privileges)) : ?>
+            <h4><?= __('Related Roles') ?></h4>
+            <?php if (!empty($person->roles)) : ?>
                 <table class="table table-bordered table-condensed table-striped table-responsive">
                     <tr>
                         <th><?= __('Id') ?></th>
-                        <th><?= __('Privilege') ?></th>
+                        <th><?= __('Role') ?></th>
                         <th><?= __('Created') ?></th>
                         <th><?= __('Modified') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
                     </tr>
-                    <?php foreach ($person->privileges as $privileges) : ?>
+                    <?php foreach ($person->roles as $roles) : ?>
                         <tr>
-                            <td><?= h($privileges->id) ?></td>
-                            <td><?= h($privileges->privilege) ?></td>
-                            <td><?= h($privileges->created) ?></td>
-                            <td><?= h($privileges->modified) ?></td>
+                            <td><?= h($roles->id) ?></td>
+                            <td><?= h($roles->role) ?></td>
+                            <td><?= h($roles->created) ?></td>
+                            <td><?= h($roles->modified) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Privileges', 'action' => 'view', $privileges->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Privileges', 'action' => 'edit', $privileges->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Privileges', 'action' => 'delete', $privileges->id], ['confirm' => __('Are you sure you want to delete # {0}?', $privileges->id)]) ?>
+                                <?= $this->Html->link(__('View'), ['controller' => 'Roles', 'action' => 'view', $roles->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Roles', 'action' => 'edit', $roles->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Roles', 'action' => 'delete', $roles->id], ['confirm' => __('Are you sure you want to delete # {0}?', $roles->id)]) ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

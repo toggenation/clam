@@ -1,0 +1,22 @@
+       '4': {
+          id: 4,
+          active: true,
+          chairman_part: false,
+          co_visit: false,
+          no_assign: true,
+          assistant: true,
+          partname: 'Song 4 and Prayer',
+          replace_token: '{no}',
+          minutes: '6',
+          start_time: '2018-12-24T19:30:00+11:00',
+          min_suffix: 'min.',
+          section_id: 4,
+          sort_order: 10,
+          counsel_mins: 0,
+          link_to: null,
+          has_auxiliary: false,
+          assistant_prefix: 'Prayer:',
+          school_part: null,
+          not_co_visit: null,
+          songNumber: '4'
+       }

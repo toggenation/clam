@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\PartsPrivilegesController;
+use App\Controller\PartsRolesController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\PartsPrivilegesController Test Case
+ * App\Controller\PartsRolesController Test Case
  */
-class PartsPrivilegesControllerTest extends IntegrationTestCase
+class PartsRolesControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,15 +16,15 @@ class PartsPrivilegesControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.parts_privileges',
+        'app.parts_roles',
         'app.parts',
         'app.sections',
         'app.assigned',
         'app.meetings',
         'app.schedules',
         'app.people',
-        'app.privileges',
-        'app.people_privileges'
+        'app.roles',
+        'app.people_roles'
     ];
 
     /**

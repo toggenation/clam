@@ -63,7 +63,7 @@ class PeopleController extends AppController {
      */
     public function view($id = null) {
         $person = $this->People->get($id, [
-            'contain' => ['Privileges', 'Assigned' => ['Meetings']]
+            'contain' => ['Roles', 'Assigned' => ['Meetings']]
         ]);
 
         $this->set('person', $person);
@@ -86,8 +86,8 @@ class PeopleController extends AppController {
                 $this->Flash->error(__('The person could not be saved. Please, try again.'));
             }
         }
-        $privileges = $this->People->Privileges->find('list', ['limit' => 200]);
-        $this->set(compact('person', 'privileges'));
+        $roles = $this->People->Roles->find('list', ['limit' => 200]);
+        $this->set(compact('person', 'roles'));
         $this->set('_serialize', ['person']);
     }
 
@@ -111,7 +111,7 @@ class PeopleController extends AppController {
         }
 
         $person = $this->People->get($id, [
-            'contain' => ['Privileges']
+            'contain' => ['Roles']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $person = $this->People->patchEntity($person, $this->request->data);
@@ -122,8 +122,8 @@ class PeopleController extends AppController {
                 $this->Flash->error(__('The person could not be saved. Please, try again.'));
             }
         }
-        $privileges = $this->People->Privileges->find('list', ['limit' => 200]);
-        $this->set(compact('person', 'privileges'));
+        $roles = $this->People->Roles->find('list', ['limit' => 200]);
+        $this->set(compact('person', 'roles'));
         $this->set('_serialize', ['person']);
     }
 

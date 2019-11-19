@@ -20,9 +20,9 @@ class PeopleControllerTest extends IntegrationTestCase
         'app.assigned',
         'app.parts',
         'app.sections',
-        'app.privileges',
-        'app.parts_privileges',
-        'app.people_privileges',
+        'app.roles',
+        'app.parts_roles',
+        'app.people_roles',
         'app.meetings',
         'app.schedules'
     ];

@@ -3,7 +3,6 @@ import Heading from "./Heading";
 import Meeting from "./Meeting";
 import Aux from "../Components/Aux";
 import Row from "reactstrap/lib/Row";
-import moment from "moment";
 import Part from "./Part";
 import React, { Component } from "react";
 import MeetingNote from "./MeetingNote";
@@ -23,6 +22,7 @@ import {
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import AlertMessage from "./AlertMessage";
 import * as asyncActions from "../Redux/actions/async";
+import utils from "../Utility/utilities";
 
 class clamEdit extends Component {
     componentDidMount() {
@@ -55,8 +55,8 @@ class clamEdit extends Component {
         } = this.props;
 
         const { start_date: startDate } = schedule;
-        const scheduleMonth = moment(startDate).format("MMMM");
-        const scheduleYear = moment(startDate).year();
+        const scheduleMonth = utils.formatDate(startDate, "MMMM");
+        const scheduleYear = utils.formatDate(startDate, "YYYY");
 
         let addMeeting = null;
         // console.log(scheduleId, meetingCount);

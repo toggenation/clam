@@ -90,7 +90,7 @@ A web based application that assists creating the monthly CLAM schedule
 
 6. Use the `Configure` dropdown menu to add or edit:
     *  People,
-    *  Privileges
+    *  Roles
     *  Parts
 
 7. Use the `Schedules` menu item to create, edit and update meeting schedules

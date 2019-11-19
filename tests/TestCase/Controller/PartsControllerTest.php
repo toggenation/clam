@@ -22,9 +22,9 @@ class PartsControllerTest extends IntegrationTestCase
         'app.meetings',
         'app.schedules',
         'app.people',
-        'app.privileges',
-        'app.parts_privileges',
-        'app.people_privileges'
+        'app.roles',
+        'app.parts_roles',
+        'app.people_roles'
     ];
 
     /**

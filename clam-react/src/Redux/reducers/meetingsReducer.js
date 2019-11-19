@@ -1,5 +1,6 @@
 import actionTypes from "../actions/actionTypes";
 import moment from "moment";
+import utils from '../../Utility/utilities'
 
 export const meetings = ( state = {}, action ) => {
     switch (action.type) {
@@ -219,7 +220,7 @@ export const getMeetingIdSortedByDate = (meetings) => {
     const sortedByDateMeetingIDs = Object.keys(meetings)
         .map(x => {
             return {
-                date: moment(meetings[x].date, "DD/MM/YYYY"),
+                date: moment(meetings[x].date, "YYYY-MM-DD"),
                 meetingId: x
             };
         })
@@ -237,10 +238,10 @@ export const getFormattedMeetingForSendingToApi = (meetings, schedule) => {
 
     const { scheduleId } = schedule
 
-    const formattedObject = Object.keys(meetings).map(obj => {
-        const meeting = meetings[obj];
+    const formattedObject = Object.keys(meetings).map(k => {
+        const meeting = meetings[k];
         const { coVisit, person_id, meeting_id, auxiliary_counselor_id, date } = meeting;
-        const formattedDate = moment(date, 'DD/MM/YYYY').format('YYYY-MM-DD');
+        const formattedDate = utils.formatDate(date, 'YYYY-MM-DD');
         return {
             co_visit: coVisit,
             person_id: person_id,

@@ -17,9 +17,9 @@ echo $this->Nav->create([
 <?php if ($loggedIn): ?>
 <?=$this->Nav->beginMenu('Top');?>
 <?=$this->Nav->beginMenu($this->Icon->faIcon('fas fa-cog') . ' Configure');?>
-<?=$this->Nav->header('People & Privileges');?>
+<?=$this->Nav->header('People & Roles');?>
 <?=$this->Nav->link("People", ['controller' => 'people', 'action' => 'index']);?>
-<?=$this->Nav->link("Privileges", ['controller' => 'privileges', 'action' => 'index']);?>
+<?=$this->Nav->link("Roles", ['controller' => 'roles', 'action' => 'index']);?>
 <?=$this->Nav->divider();?>
 <?=$this->Nav->header('Meeting Parts');?>
 <?=$this->Nav->link("Sections", ['controller' => 'sections', 'action' => 'index']);?>

@@ -146,28 +146,28 @@ INSERT INTO `parts` VALUES (4,1,0,0,1,1,'Song {no} and Prayer','{no}',5,'19:30:0
 UNLOCK TABLES;
 
 --
--- Table structure for table `parts_privileges`
+-- Table structure for table `parts_roles`
 --
 
-DROP TABLE IF EXISTS `parts_privileges`;
+DROP TABLE IF EXISTS `parts_roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `parts_privileges` (
+CREATE TABLE `parts_roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `part_id` int(11) NOT NULL,
-  `privilege_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `parts_privileges`
+-- Dumping data for table `parts_roles`
 --
 
-LOCK TABLES `parts_privileges` WRITE;
-/*!40000 ALTER TABLE `parts_privileges` DISABLE KEYS */;
-INSERT INTO `parts_privileges` VALUES (1,4,2),(2,17,2),(3,5,3),(4,16,3),(5,15,4),(6,7,6),(7,13,7),(8,14,7),(9,15,9),(12,9,12),(13,10,12),(14,11,12),(15,6,5),(16,18,13),(17,8,10),(19,8,14),(21,19,15),(23,21,3),(25,22,12),(26,23,3),(28,24,12),(29,20,16),(31,21,16),(32,23,16);
-/*!40000 ALTER TABLE `parts_privileges` ENABLE KEYS */;
+LOCK TABLES `parts_roles` WRITE;
+/*!40000 ALTER TABLE `parts_roles` DISABLE KEYS */;
+INSERT INTO `parts_roles` VALUES (1,4,2),(2,17,2),(3,5,3),(4,16,3),(5,15,4),(6,7,6),(7,13,7),(8,14,7),(9,15,9),(12,9,12),(13,10,12),(14,11,12),(15,6,5),(16,18,13),(17,8,10),(19,8,14),(21,19,15),(23,21,3),(25,22,12),(26,23,3),(28,24,12),(29,20,16),(31,21,16),(32,23,16);
+/*!40000 ALTER TABLE `parts_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -200,28 +200,28 @@ INSERT INTO `people` VALUES (1,0,'Abigail','Pagac','2019-11-13 08:33:29','2019-1
 UNLOCK TABLES;
 
 --
--- Table structure for table `people_privileges`
+-- Table structure for table `people_roles`
 --
 
-DROP TABLE IF EXISTS `people_privileges`;
+DROP TABLE IF EXISTS `people_roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `people_privileges` (
+CREATE TABLE `people_roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` int(11) DEFAULT NULL,
-  `privilege_id` int(11) DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=304 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `people_privileges`
+-- Dumping data for table `people_roles`
 --
 
-LOCK TABLES `people_privileges` WRITE;
-/*!40000 ALTER TABLE `people_privileges` DISABLE KEYS */;
-INSERT INTO `people_privileges` VALUES (1,29,10),(2,37,10),(3,49,10),(4,65,10),(5,77,10),(6,92,10),(10,101,12),(11,25,3),(12,71,3),(13,73,3),(14,75,3),(15,87,3),(16,97,3),(17,28,16),(18,36,16),(19,65,16),(20,18,15),(149,1,12),(150,2,12),(151,3,12),(152,4,12),(153,5,12),(154,6,12),(155,7,12),(156,8,12),(157,9,12),(158,10,12),(159,11,12),(160,12,12),(161,13,12),(162,14,12),(163,15,12),(164,16,12),(165,17,12),(166,18,12),(167,19,12),(168,20,12),(169,21,12),(170,22,12),(171,23,12),(172,24,12),(173,25,12),(174,26,12),(175,27,12),(176,28,12),(177,29,12),(178,30,12),(179,31,12),(180,32,12),(181,33,12),(182,34,12),(183,35,12),(184,36,12),(185,37,12),(186,38,12),(187,39,12),(188,40,12),(189,41,12),(190,42,12),(191,43,12),(192,44,12),(193,45,12),(194,46,12),(195,47,12),(196,48,12),(197,49,12),(198,50,12),(199,51,12),(200,52,12),(201,53,12),(202,54,12),(203,55,12),(204,56,12),(205,57,12),(206,58,12),(207,59,12),(208,60,12),(209,61,12),(210,62,12),(211,63,12),(212,64,12),(213,65,12),(214,66,12),(215,67,12),(216,68,12),(217,69,12),(218,70,12),(219,71,12),(220,72,12),(221,73,12),(222,74,12),(223,75,12),(224,76,12),(225,77,12),(226,78,12),(227,79,12),(228,80,12),(229,81,12),(230,82,12),(231,83,12),(232,84,12),(233,85,12),(234,86,12),(235,87,12),(236,88,12),(237,89,12),(238,90,12),(239,91,12),(240,92,12),(241,93,12),(242,94,12),(243,95,12),(244,96,12),(245,97,12),(246,98,12),(247,99,12),(248,100,12),(249,101,12),(276,8,2),(277,25,2),(278,65,2),(279,71,2),(280,87,2),(281,97,2),(282,100,2),(283,5,7),(284,9,7),(285,12,7),(286,18,7),(287,25,7),(288,56,7),(289,65,7),(290,73,7),(291,87,7);
-/*!40000 ALTER TABLE `people_privileges` ENABLE KEYS */;
+LOCK TABLES `people_roles` WRITE;
+/*!40000 ALTER TABLE `people_roles` DISABLE KEYS */;
+INSERT INTO `people_roles` VALUES (1,29,10),(2,37,10),(3,49,10),(4,65,10),(5,77,10),(6,92,10),(10,101,12),(11,25,3),(12,71,3),(13,73,3),(14,75,3),(15,87,3),(16,97,3),(17,28,16),(18,36,16),(19,65,16),(20,18,15),(149,1,12),(150,2,12),(151,3,12),(152,4,12),(153,5,12),(154,6,12),(155,7,12),(156,8,12),(157,9,12),(158,10,12),(159,11,12),(160,12,12),(161,13,12),(162,14,12),(163,15,12),(164,16,12),(165,17,12),(166,18,12),(167,19,12),(168,20,12),(169,21,12),(170,22,12),(171,23,12),(172,24,12),(173,25,12),(174,26,12),(175,27,12),(176,28,12),(177,29,12),(178,30,12),(179,31,12),(180,32,12),(181,33,12),(182,34,12),(183,35,12),(184,36,12),(185,37,12),(186,38,12),(187,39,12),(188,40,12),(189,41,12),(190,42,12),(191,43,12),(192,44,12),(193,45,12),(194,46,12),(195,47,12),(196,48,12),(197,49,12),(198,50,12),(199,51,12),(200,52,12),(201,53,12),(202,54,12),(203,55,12),(204,56,12),(205,57,12),(206,58,12),(207,59,12),(208,60,12),(209,61,12),(210,62,12),(211,63,12),(212,64,12),(213,65,12),(214,66,12),(215,67,12),(216,68,12),(217,69,12),(218,70,12),(219,71,12),(220,72,12),(221,73,12),(222,74,12),(223,75,12),(224,76,12),(225,77,12),(226,78,12),(227,79,12),(228,80,12),(229,81,12),(230,82,12),(231,83,12),(232,84,12),(233,85,12),(234,86,12),(235,87,12),(236,88,12),(237,89,12),(238,90,12),(239,91,12),(240,92,12),(241,93,12),(242,94,12),(243,95,12),(244,96,12),(245,97,12),(246,98,12),(247,99,12),(248,100,12),(249,101,12),(276,8,2),(277,25,2),(278,65,2),(279,71,2),(280,87,2),(281,97,2),(282,100,2),(283,5,7),(284,9,7),(285,12,7),(286,18,7),(287,25,7),(288,56,7),(289,65,7),(290,73,7),(291,87,7);
+/*!40000 ALTER TABLE `people_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -252,16 +252,16 @@ INSERT INTO `phinxlog` VALUES (20171216230425,'Base','2017-12-18 02:08:55','2017
 UNLOCK TABLES;
 
 --
--- Table structure for table `privileges`
+-- Table structure for table `roles`
 --
 
-DROP TABLE IF EXISTS `privileges`;
+DROP TABLE IF EXISTS `roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `privileges` (
+CREATE TABLE `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `assistant` tinyint(1) NOT NULL,
-  `privilege` varchar(45) DEFAULT NULL,
+  `role` varchar(45) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   `for_brothers` tinyint(1) DEFAULT NULL,
@@ -270,13 +270,13 @@ CREATE TABLE `privileges` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `privileges`
+-- Dumping data for table `roles`
 --
 
-LOCK TABLES `privileges` WRITE;
-/*!40000 ALTER TABLE `privileges` DISABLE KEYS */;
-INSERT INTO `privileges` VALUES (2,1,'Prayer','2016-05-26 12:16:16','2019-11-14 04:52:12',1),(3,0,'Chairman','2016-05-26 12:18:15','2019-11-14 00:42:37',1),(4,0,'Congregation Bible Study Conductor','2016-05-26 12:24:39','2019-11-13 08:49:51',1),(5,0,'Treasures from God\'s Word','2016-05-26 12:25:01','2019-11-13 08:49:56',1),(6,0,'Digging for Spiritual Gems','2016-05-26 12:25:00','2019-11-13 08:50:27',1),(7,0,'Living as Christians','2016-05-26 12:25:25','2019-11-14 04:54:37',1),(9,1,'CBS Reader','2016-05-26 12:32:47','2019-11-13 08:50:56',1),(10,0,'Elder','2016-05-27 09:02:17','2019-11-13 23:37:15',1),(11,0,'Ministerial Servant','2016-05-27 09:02:25','2019-11-13 08:51:11',1),(12,0,'School','2016-05-27 09:02:40','2016-08-21 12:15:16',NULL),(13,0,'Bible Reading','2016-08-21 12:40:58','2019-11-14 05:09:25',1),(14,0,'Apply Yourselves to the Field Ministry','2016-08-21 12:50:26','2019-11-13 08:51:32',1),(15,0,'Circuit Overseer','2017-01-19 06:55:19','2019-11-14 00:49:09',1),(16,0,'Auxiliary Classroom Counselor','2018-01-19 02:26:49','2019-11-14 00:46:42',1);
-/*!40000 ALTER TABLE `privileges` ENABLE KEYS */;
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (2,1,'Prayer','2016-05-26 12:16:16','2019-11-14 04:52:12',1),(3,0,'Chairman','2016-05-26 12:18:15','2019-11-14 00:42:37',1),(4,0,'Congregation Bible Study Conductor','2016-05-26 12:24:39','2019-11-13 08:49:51',1),(5,0,'Treasures from God\'s Word','2016-05-26 12:25:01','2019-11-13 08:49:56',1),(6,0,'Digging for Spiritual Gems','2016-05-26 12:25:00','2019-11-13 08:50:27',1),(7,0,'Living as Christians','2016-05-26 12:25:25','2019-11-14 04:54:37',1),(9,1,'CBS Reader','2016-05-26 12:32:47','2019-11-13 08:50:56',1),(10,0,'Elder','2016-05-27 09:02:17','2019-11-13 23:37:15',1),(11,0,'Ministerial Servant','2016-05-27 09:02:25','2019-11-13 08:51:11',1),(12,0,'School','2016-05-27 09:02:40','2016-08-21 12:15:16',NULL),(13,0,'Bible Reading','2016-08-21 12:40:58','2019-11-14 05:09:25',1),(14,0,'Apply Yourselves to the Field Ministry','2016-08-21 12:50:26','2019-11-13 08:51:32',1),(15,0,'Circuit Overseer','2017-01-19 06:55:19','2019-11-14 00:49:09',1),(16,0,'Auxiliary Classroom Counselor','2018-01-19 02:26:49','2019-11-14 00:46:42',1);
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

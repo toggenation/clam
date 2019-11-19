@@ -294,17 +294,17 @@ if ($part->part->has_auxiliary === true) {
         ],
         'empty' => '(please select)',
         'class' => 'aux_assigned auxiliary form-control-sm',
-        'options' => $privileges[$part->part_id]['assigned'],
+        'options' => $roles[$part->part_id]['assigned'],
         'label' => [
             'class' => 'sr-only',
 
         ]]);
 
     if ($part->part->assistant === true) {
-        if (!empty($privileges[$part->part_id]['assistant'])) {
-            $options = $privileges[$part->part_id]['assistant'];
+        if (!empty($roles[$part->part_id]['assistant'])) {
+            $options = $roles[$part->part_id]['assistant'];
         } else {
-            $options = $privileges[$part->part_id]['assigned'];
+            $options = $roles[$part->part_id]['assigned'];
         }
 
         if ($part->part->has_auxiliary === true) {
@@ -383,16 +383,16 @@ if (!($part->part->no_assign === true)) {
         ],
         'empty' => '(please select)',
         'class' => 'person_id form-control-sm',
-        'options' => $privileges[$part->part_id]['assigned'],
+        'options' => $roles[$part->part_id]['assigned'],
         'label' => [
             'class' => 'sr-only',
         ]]);
 }
 if ($part->part->assistant === true) {
-    if (!empty($privileges[$part->part_id]['assistant'])) {
-        $options = $privileges[$part->part_id]['assistant'];
+    if (!empty($roles[$part->part_id]['assistant'])) {
+        $options = $roles[$part->part_id]['assistant'];
     } else {
-        $options = $privileges[$part->part_id]['assigned'];
+        $options = $roles[$part->part_id]['assigned'];
     }
 
     echo $this->Form->input('Assigned.' . $ctr . '.assistant_id', [

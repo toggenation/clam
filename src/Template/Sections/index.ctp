@@ -27,7 +27,7 @@
                 <td><?= $this->Number->format($section->sort_order) ?></td>
                 <td><?= h($section->heading) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $section->index]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $section->id ]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $section->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $section->id], ['confirm' => __('Are you sure you want to delete # {0}?', $section->id)]) ?>
                 </td>

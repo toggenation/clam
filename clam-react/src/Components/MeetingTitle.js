@@ -6,6 +6,7 @@ import classes from './MeetingTitle.module.css';
 import DatePicker from 'react-datepicker';
 import {connect} from 'react-redux';
 import AddMeeting from '../Components/AddMeeting';
+import HelpBlock from './HelpBlock';
 
 import { resortMeetingsAfterDateChange } from '../Redux/actions/async';
 import {
@@ -15,26 +16,38 @@ import {
 
 class MeetingDateTitle extends React.Component {
     render(){
+        let style = {cursor:'pointer', width: '300px',}
+        if(this.props.error.show) {
+            style.marginBottom = '0px'
+        }
     return (
-        <h5
-            style={{cursor:'pointer'}}
+        <div><h5
+            style={style}
             className={classes.MeetingTitle}
             onClick={this.props.onClick}
         ><Calendar style={{marginBottom: '6px'}}/>{' '}{this.props.value}</h5>
+                <HelpBlock error={this.props.error} />
+        </div>
     )}
 }
 
 const MeetingTitle = ({ meetingDate, handleChange, meetingId, deleteMeeting, isPublished })  => {
-    const md = moment(meetingDate, "DD/MM/YYYY")
+    const md = moment(meetingDate, "YYYY-MM-DD")
+    const error = {
+        blockId: 12,
+        show: false ,
+        text: 'Hi there'};
     return (
         <Row>
             <Col>
             <DatePicker
-                customInput={<MeetingDateTitle />}
+                customInput={<MeetingDateTitle error={error} />}
                 selected={md}
                 disabled={isPublished}
                 dateFormat={"ddd Do MMMM YYYY"}
-                onChange={(m) => { handleChange(meetingId, m.format('DD/MM/YYYY'))}} />
+                onChange={(m) => {
+                    handleChange(meetingId, m.format('YYYY-MM-DD'))
+                }} />
             </Col>
 
              <AddMeeting />

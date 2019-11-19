@@ -61,7 +61,7 @@ const ConfigureSchedule = props => {
                 </div>
                 <DatePicker
                     className="form-control form-control-sm tgn-input meetingDatePicker"
-                    dateFormat="DD/MM/YYYY"
+                    dateFormat="l"
                     selected={startDate}
                     selectsStart
                     autocomplete="false"
@@ -82,14 +82,14 @@ const ConfigureSchedule = props => {
 
                 <DatePicker
                     className="form-control form-control-sm tgn-input meetingDatePicker"
-                    dateFormat="DD/MM/YYYY"
+                    dateFormat="l"
                     selected={endDate}
                     selectsEnd
                     autocomplete="false"
                     startDate={startDate}
                     endDate={endDate}
                     onChange={m => {
-                        updateScheduleEndDate(m.format());
+                        updateScheduleEndDate(m);
                     }}
                 />
                 <div className="input-group-append">

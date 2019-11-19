@@ -29,11 +29,11 @@ class ScheduleTableTest extends TestCase
         'app.schedules',
         'app.assigned',
         'app.people',
-        'app.privileges',
+        'app.roles',
         'app.parts',
         'app.sections',
-        'app.parts_privileges',
-        'app.people_privileges'
+        'app.parts_roles',
+        'app.people_roles'
     ];
 
     /**

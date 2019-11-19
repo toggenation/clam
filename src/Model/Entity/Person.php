@@ -12,7 +12,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
  * @property \App\Model\Entity\Assigned[] $assigned
- * @property \App\Model\Entity\Privilege[] $privileges
+ * @property \App\Model\Entity\Role[] $roles
  */
 class Person extends Entity
 {

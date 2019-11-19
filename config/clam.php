@@ -8,7 +8,7 @@ return array (
     'author' => 'James McDonald',
     'title' => 'Christian Life and Ministry',
     'pdfTitle' => 'Christian Life and Ministry %s %s',
-    'pdfSubject' => 'Christian Life and Ministry Schedule for  %s %s',
+    'pdfSubject' => 'Christian Life and Ministry Schedule for %s %s',
     'pdfKeywords' => 'CLAM CLM Schedule Program Meeting Service Meeting',
   ),
 );

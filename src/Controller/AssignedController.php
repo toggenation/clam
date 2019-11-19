@@ -227,7 +227,7 @@ class AssignedController extends AppController
 
         $auxCounselors = $this->Assigned->findMeetingPrivs('Auxiliary Classroom Counselor');
 
-        $privileges = $this->Assigned->find_privs();
+        $roles = $this->Assigned->find_privs();
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             $meetings = $this->Assigned->Meetings;
@@ -305,7 +305,7 @@ class AssignedController extends AppController
                 compact(
                     'meetingChairmen',
                     'auxCounselors',
-                    'privileges',
+                    'roles',
                     'assigned',
                     'meetings',
                     'month',

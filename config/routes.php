@@ -50,11 +50,11 @@ Router::prefix('api', function ($routes) {
     $routes->resources('MeetingSections');
     $routes->resources('Meetings');
     $routes->resources('Parts');
-    $routes->resources('PartsPrivileges');
+    $routes->resources('PartsRoles');
     $routes->resources('People');
-    $routes->resources('PeoplePrivileges');
+    $routes->resources('PeopleRoles');
     $routes->resources('PersonType');
-    $routes->resources('Privileges');
+    $routes->resources('Roles');
     $routes->resources('Schedules');
     $routes->resources('Sections');
     $routes->resources('Users');

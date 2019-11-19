@@ -5,10 +5,10 @@
         <li class="nav-item"><?= $this->Html->link(__('List Parts'), ['action' => 'index'], ['class' => 'nav-link' ]) ?></li>
         <li class="nav-item"><?= $this->Html->link(__('List Sections'), ['controller' => 'Sections', 'action' => 'index'], ['class' => 'nav-link' ]) ?></li>
         <li class="nav-item"><?= $this->Html->link(__('New Section'), ['controller' => 'Sections', 'action' => 'add'], ['class' => 'nav-link' ]) ?></li>
-        <li class="nav-item"><?= $this->Html->link(__('List Assigned'), ['controller' => 'Assigned', 'action' => 'index'], ['class' => 'nav-link' ]) ?></li>
-        <li class="nav-item"><?= $this->Html->link(__('New Assigned'), ['controller' => 'Assigned', 'action' => 'add'], ['class' => 'nav-link' ]) ?></li>
-        <li class="nav-item"><?= $this->Html->link(__('List Privileges'), ['controller' => 'Privileges', 'action' => 'index'], ['class' => 'nav-link' ]) ?></li>
-        <li class="nav-item"><?= $this->Html->link(__('New Privilege'), ['controller' => 'Privileges', 'action' => 'add'], ['class' => 'nav-link' ]) ?></li>
+
+
+        <li class="nav-item"><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index'], ['class' => 'nav-link' ]) ?></li>
+        <li class="nav-item"><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add'], ['class' => 'nav-link' ]) ?></li>
     </ul>
     </div>
 <div class="col-lg-10">
@@ -48,7 +48,7 @@
 
             echo $this->Form->input('section_id', ['options' => $sections, 'empty' => true]);
             echo $this->Form->input('sort_order');
-            echo $this->Form->input('privileges._ids', ['options' => $privileges]);
+            echo $this->Form->input('roles._ids', ['options' => $roles]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

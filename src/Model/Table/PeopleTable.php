@@ -12,7 +12,7 @@ use Cake\Datasource\ConnectionManager;
  * People Model
  *
  * @property \Cake\ORM\Association\HasMany $Assigned
- * @property \Cake\ORM\Association\BelongsToMany $Privileges
+ * @property \Cake\ORM\Association\BelongsToMany $Roles
  */
 class PeopleTable extends Table
 {
@@ -65,10 +65,10 @@ class PeopleTable extends Table
             'foreignKey' => 'aux_assistant_id'
         ]);
 
-        $this->belongsToMany('Privileges', [
+        $this->belongsToMany('Roles', [
             'foreignKey' => 'person_id',
-            'targetForeignKey' => 'privilege_id',
-            'joinTable' => 'people_privileges'
+            'targetForeignKey' => 'role_id',
+            'joinTable' => 'people_roles'
         ]);
     }
 

@@ -8,6 +8,7 @@ import PartTitles from "./PartTitles";
 import Card from 'reactstrap/lib/Card';
 import CardBody from 'reactstrap/lib/CardBody'
 
+
 const Meeting = props => {
     const { meetingId, meetingDate, children, deleteMeeting } = props;
 

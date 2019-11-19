@@ -8,9 +8,9 @@
         <li class="nav-item"><?= $this->Form->postLink(__('Delete Schedule'), ['action' => 'delete', $schedule->id], [
             'class' => 'nav-link',
             'confirm' => __('Are you sure you want to delete # {0}?', $schedule->id)]) ?> </li>
-        <li class="nav-item"><?= $this->Html->link(__('List Schedules'), ['action' => 'index'], ['class' => 'nav-link' ]) ?> </li>
-        <li class="nav-item"><?= $this->Html->link(__('New Schedule'), ['action' => 'add'], ['class' => 'nav-link' ]) ?> </li>
-        <li class="nav-item"><?= $this->Html->link(__('List Meetings'), ['controller' => 'Meetings', 'action' => 'index'], ['class' => 'nav-link' ]) ?> </li>
+
+
+
         <li class="nav-item"><?= $this->Html->link(__('New Meeting'), ['controller' => 'Meetings', 'action' => 'add'], ['class' => 'nav-link' ]) ?> </li>
     </ul>
 </div>
